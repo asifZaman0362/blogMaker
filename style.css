@@ -1,0 +1,23 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #1d2123;
+    color: white;
+}
+header {
+    background-color: white;
+    padding: 20pt 50pt;
+    font-size: 20pt;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: black;
+}
+header span {
+    font-weight: lighter;
+}
+#parent-content {
+    padding: 20pt 50pt;
+}
+date {
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+}
