@@ -48,9 +48,12 @@ upper = '''
 mid = '''
                 </section>
             </div>
+            <div id="list-container">
+                <ul>
 '''
-
 end = '''
+                </ul>
+            </div>
         </div>
     </body>
 </html>

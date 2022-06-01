@@ -1,0 +1,36 @@
+!!DISCLAIMER!!:
+I know I should stop using design.txt's to engineer software but my god if they aren't efficient. So unless I find any good reason
+not to (other than the obvious ones such as hard-to-manage, **unprofessional** and AREYOUFREAKINSERIOUS?), I shall continue
+using them to design software that nobody other than myself will ever actually use (And I'm not even sure I myself will
+stick with it and not move on to something **wink wink** better). So I don't care and neither should you.
+
+So, yes
+A markdown based static blog generator
+
+What we needs:
+    * A database of blogs (in case of updates):
+        * A blogs directory with every single blog post to ever have lived on the site (archived/deleted posts shall be stored in
+          the appropriately named 'archived' folder)
+        * A database (.dat file basically) with the unique id's of added blog posts (for udpates and deletions)
+        * 'tis all
+    * CLI beacuse man not machine
+        * simple commands like 'add, update, remove'
+        * 'tis all
+    * 'tis all
+
+What we dont-needs (or more precisely: what we needs to avoid):
+    * scope-creeps
+        * This program does just one job (actually three):
+            - Add blog posts
+            - Update blog posts
+            - Remove blog posts
+          And all that it does in a simple but elegant manner, using textfiles and markdown
+        * This program does not have a blog post editor (use vim, or vscode like a heathen such as myself)
+        * This program does not provide backups or anything of that kind
+        * This program is NOT a DBMS
+        * All you get is three commands: add, update, remove
+        * 'tis all
+    * 'tis all
+
+Got it? Good!
+'tis all 

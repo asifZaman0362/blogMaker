@@ -1,0 +1,12 @@
+date_created:   01-01-1970
+date_edited:    01-01-1970
+author:         William Shakespeare
+categories:     Plays, Poems
+content:
+    Start your actual content on a new line, after and indent (in that order). Although the parser doesn't generally care for
+indentation and will interpret all content within the content context (i.e, after the ```content:``` tag) as Markdown, it is
+widely agreed upon standard to start your blogs with an indent. The line-break however, is of significance since the parser
+only starts parsing markdown after the line starting with ```content:```. You may use Markdown as you would normally use in
+any other context. This program doesn't enforce any special rules and doesn't have any extensions to Markdown either. In fact,
+under the hood, it uses the [md2html](https://pypi.org/project/md2html/) program to generate HTML blog posts from the input
+Markdown content.
