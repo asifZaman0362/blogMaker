@@ -1,23 +1,204 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #1d2123;
+}
+
+body {
+    background-color: #1d1d1d;
     color: white;
 }
+
 header {
-    background-color: white;
-    padding: 20pt 50pt;
-    font-size: 20pt;
     font-family: 'IBM Plex Sans', sans-serif;
+    background-color: aliceblue;
+    padding: 15pt 50pt;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#textmark {
+    flex-grow: 1;
+}
+
+#textmark a {
+    font-weight: 600;
+    color: black;
+    font-size: larger;
+}
+
+#textmark #domainextension {
+    font-weight: normal;
+    font-style: italic;
+}
+
+#textmark #domainextension::before {
+    content: ".";
+}
+
+#textmark #subdomain {
+    font-weight: normal;
+    font-style: italic;
+}
+
+#textmark #subdomain::before {
+    content: "::";
+}
+
+header nav ul {
+    display: block;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav a {
+    color: black;
+    margin-left: 10px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 20pt;
+    padding: 30pt;
+}
+
+date {
+    display: block;
+}
+
+date::before {
+    content: "Published on: ";
+    font-weight: 600;
+}
+
+author {
+    display: block;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+author::before {
+    content: "~";
+}
+
+#featured {
+    background-color: darkslategray;
+    padding: 20pt;
+    border-radius: 10px;
+    margin-bottom: 20pt;
+}
+
+h1.title {
+    font-size: 32px;
+    margin: 5px 0 20px;
+    font-weight: 700;
+}
+
+#featured a {
+    color: cyan;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+#overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10pt;
+    row-gap: 10pt;
+}
+
+#overview .post-excerpt {
+    color: white;
+    text-decoration: none;
+    background-color: rgb(83, 56, 49);
+    display: block;
+    padding: 20pt;
+    border-radius: 10px;
+    transition: 0.5s ease-in-out;
+}
+
+#overview .post-excerpt:hover {
+    background-color: white;
     color: black;
 }
-header span {
-    font-weight: lighter;
+
+#sidebar {
+    background-color: rgb(41, 58, 75);
+    border-radius: 10px;
+    padding: 20pt;
 }
-#parent-content {
-    padding: 20pt 50pt;
+
+#sidebar h2 {
+    margin: 0;
 }
-date {
-    font-size: 12px;
-    font-family: 'Inter', sans-serif;
+
+#sidebar ul li a {
+    color: white;
+    font-size: 120%;
+}
+
+/* Blog post */
+
+#post-parent {
+    padding: 40pt 20pt;
+}
+
+#post-container {
+    background-color: #313233;
+    border-radius: 10px;
+    padding: 20pt 30pt;
+    font-size: 120%;
+}
+
+#post-container article categories ul {
+    display: inline-block;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+#post-container article categories ul li {
+    display: inline-block;
+}
+
+#post-container article categories ul li::after {
+    content: ",";
+}
+
+#post-container article categories ul li:last-child::after {
+    content: "";
+}
+
+#post-container article categories::before {
+    content: "Categories:";
+    font-weight: 600;
+}
+
+.split-view-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#post-container article p.content {
+    text-align: justify;
+}
+
+#post-container article p.content:first-child:first-letter {
+    font-size: 54px;
+    float: left;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#post-container article p.content:first-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    padding-right: 20px;
+}
+
+#post-container article p.content:last-child {
+    padding-left: 20px;
 }

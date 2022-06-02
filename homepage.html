@@ -2,8 +2,10 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>zifmann.tech::Blogs</title>
-        <style>
+        <title>zifmann.tech::blog</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Literata:ital,opsz,wght@0,7..72,200;0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;0,7..72,800;0,7..72,900;1,7..72,200;1,7..72,300;1,7..72,400;1,7..72,500;1,7..72,600;1,7..72,700;1,7..72,800;1,7..72,900&display=swap" rel="stylesheet"> <style>
             html, body {
                 margin: 0;
                 padding: 0;
@@ -16,45 +18,130 @@
                 font-size: 20pt;
                 font-family: 'IBM Plex Sans', sans-serif;
                 color: black;
+                font-weight: 300;
+                font-style: italic;
+                text-decoration: underline;
             }
             header span {
-                font-weight: lighter;
+                font-weight: 300;
+                font-style: normal;
+                text-transform: lowercase;
+            }
+            header span#zifmann {
+                font-weight: 500;
             }
             #parent-content {
-                padding: 20pt 50pt;
-            } 
+                padding: 20pt 30pt;
+                display: grid;
+                grid-template-columns: 3fr 1fr;
+                column-gap: 20pt;
+            }
+            section#featured-banner {
+                background-color: darkslategrey;
+                padding: 20pt;
+                border-radius: 10px;
+            }
             date::before {
-                content: "Date:";
+                content: "Date:  ";
+                font-weight: 700;
             }
             date {
-                font-family: sans-serif;
-                font-size: 12px;
+                font-size: 12pt;
                 display: block;
+            }
+            author::before {
+                content: "Author:  ";
+                font-weight: 700;
+            }
+            author {
+                display: block;
+                font-size: 12pt;
+            }
+            article content {
+                margin-top: 10pt;
+                display: block;
+            }
+            article title {
+                display: block;
+                font-size: 140%;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            div.button-container {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+            a {
+                margin-top: 20px;
+                text-align: center;
+                text-decoration: none;
+            }
+            a div {
+                width: fit-content;
+                padding: 10px 15px;
+                background-color: aliceblue;
+                color: black;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-decoration: none;
+                font-family: sans-serif;
+                border-radius: 5px;
+            }
+            #sidebar {
+                padding: 20pt;
+                background-color: rgb(61, 61, 112);
+                border-radius: 10px;
+            }
+            #sidebar h2 {
+                margin: 0;
             }
         </style>
     </head>
     <body>
         <div class="container" id="main">
             <header>
-                zifmann.tech<span>::Blogs</span>
+                <span id="zifmann">zifmann</span>.tech<span id="sub">::blog</span>
             </header>
             <div id="parent-content">
-                <section id="featured-banner">
-<article>
-<title>The unfortunate death of Sir Ravix Of Fourhorn
-</title>
-<date>10-10-2020
-</date>
-<author>Jaskier, the bard
-</author>
-<content>
-It is with a heavy heart that I inform you all that our beloved knight and friend, the Witcher Geralt of Rivia has passed away on this gloomy night at around 11:30 PM. May his soul rest in piece.
-
-</content>
-
-                </section>
+                <div id="blog-posts-container">
+                    <section id="featured-banner">
+                        <article>
+                            <title>Lorem Ipsum Dolor Sit Amet</title>
+                            <date>10-10-2020</date>
+                            <author>Lorem Generator</author>
+                            <content>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus illum quo libero ducimus at sequi officiis veniam reprehenderit ipsum possimus quod, illo beatae nisi labore, inventore laborum iste optio iure.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto in ex est earum velit unde officiis voluptatum, dicta illum ad repellat, quam cum impedit voluptates error suscipit ratione corporis illo?
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto necessitatibus non similique natus? Enim culpa rem eaque exercitationem provident obcaecati cupiditate quis, officiis excepturi cumque alias quam nisi ex ea...
+                            </content>
+                            <div class="button-container">
+                                <a href="blogs/death_of_geralt.html">
+                                    <div>read more</div>
+                                </a>
+                            </div>
+                    </section>
+                </div>
+                <div id="sidebar">
+                    <h2>Categories</h2>
+                    <ul>
+                        <li>Discoveries</li>
+                        <li>Ideas</li>
+                        <li>Rants</li>
+                        <li>Life</li>
+                        <li>Recommendations</li>
+                    </ul>
+                    <h2>Archives</h2>
+                    <ul>
+                        <li>2021</li>
+                        <li>2020</li>
+                        <li>2019</li>
+                        <li>2018</li>
+                        <li>2017</li>
+                    </ul>
+                </div>
             </div>
-
         </div>
     </body>
 </html>

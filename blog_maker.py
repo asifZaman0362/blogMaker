@@ -9,36 +9,33 @@ def get_files(filenamelist):
 
 def main():
     arg_parser = argparse.ArgumentParser(description="A minimal static blog generator")
-    arg_parser.add_argument("mode", help="Available modes: -a (add), -u (update) and -r  (remove)")
+    arg_parser.add_argument("mode", help="Available modes: add, update and remove")
     arg_parser.add_argument("filenamelist", help="List of .blog files seperated by commas and no spaces")
     args = arg_parser.parse_args()
 
     files = get_files(args.filenamelist)
     if files:
         match args.mode:
-            case "-a":
+            case "add":
                 for f in files:
-                    with open(f, 'r'):
-                        # TODO: Add blog post
-                        pass
-            case "-u":
+                    # with open(f, 'r'):
+                    #     # TODO: Add blog post
+                    #     pass
+                    print(f'Adding {f}...')
+            case "update":
                 for f in files:
-                    with open(f, 'r'):
-                        # TODO: Update blog post
-                        pass
-            case "-r":
+                    # with open(f, 'r'):
+                    #     # TODO: Update blog post
+                    #     pass
+                    print(f'Updating {f}...')
+            case "remove":
                 for f in files:
-                    with open(f, 'r'):
-                        # TODO: Remove blog post
-                        pass
+                    # with open(f, 'r'):
+                    #     # TODO: Remove blog post
+                    #     pass
+                    print(f'Removing {f}...')
             case _:
                 print("Not a valid mode. Expected one of [-u, -a, -r]")
 
 if __name__ == "__main__":
     main()
-
-# usage:
-# zlog [mode] [filenamelist]
-# zlog -a [filename,filename,...]
-# zlog -u [filename,filename,...]
-# zlog -r [filename,filename,...]
