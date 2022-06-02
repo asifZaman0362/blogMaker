@@ -3,9 +3,25 @@
 import os, subprocess
 import argparse
 
+from blogpost import BlogPost, BlogPostParser
+
 def get_files(filenamelist):
     files = filenamelist.split(',')
     return files if len(files) else None
+
+def add_post(filename):
+    with open('data/posts.db', 'w') as database:
+        names = database.read().split('\n')
+        for post in names:
+            if filename == post:
+                return False
+        if len(names) > 10:
+            names.pop()
+        names = [filename] + names
+    # generate html for main blog page
+    blogpost = BlogPostParser(filename).parse_blog()
+    blog_post_html = blogpost.generate_html_main_post()
+    summary_html = blogpost.generate_html_summary()
 
 def main():
     arg_parser = argparse.ArgumentParser(description="A minimal static blog generator")
