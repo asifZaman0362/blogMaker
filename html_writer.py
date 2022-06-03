@@ -110,7 +110,7 @@ blogpost_footer = '''
 
 def generate_homepage(summaries, featured):
     try:
-        with open('index.html', 'w') as homepage:
+        with open('page.html', 'w') as homepage:
             homepage.write(top)
             homepage.write(featured_start)
             homepage.write(featured)

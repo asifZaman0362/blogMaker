@@ -10,23 +10,25 @@ def get_files(filenamelist):
     return files if len(files) else None
 
 def add_post(filename):
-    with open('data/posts.db', 'w') as database:
+    with open('data/posts.db', 'r+') as database:
         names = database.read().split('\n')
         if filename in names:
                 return False
         if len(names) > 10:
-            names.pop()
+            names = names[:10]
         names = [filename] + names
+        database.write('\n'.join(names))
     # generate html for main blog page
     blogpost = BlogPostParser(filename).parse_blog_post()
     blog_post_html = blogpost.generate_html_main_post()
     summary_html = blogpost.generate_html_summary()
     # generate html summaries for the last eleven entries
     summaries = []
-    with open('data/posts.db', 'w') as database:
+    print(summaries)
+    with open('data/posts.db', 'r') as database:
         names = database.read().split('\n')
         for post in names:
-            if post == filename:
+            if post == filename or post == '':
                 continue
             # generate summary html
             blogpost = BlogPostParser(post).parse_blog_post()
@@ -46,10 +48,7 @@ def main():
         match args.mode:
             case "add":
                 for f in files:
-                    # with open(f, 'r'):
-                    #     # TODO: Add blog post
-                    #     pass
-                    print(f'Adding {f}...')
+                    add_post(f)
             case "update":
                 for f in files:
                     # with open(f, 'r'):

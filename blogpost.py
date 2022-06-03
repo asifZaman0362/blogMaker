@@ -1,3 +1,5 @@
+import markdown
+
 class BlogPost(object):
 
     def __init__(self, title, author, categories, date, content):
@@ -5,7 +7,7 @@ class BlogPost(object):
         self.author = author
         self.categories = categories
         self.date = date
-        self.content = content
+        self.content = markdown.markdown(content)
 
     def generate_html_main_post(self):
         newline = '\n                        '
@@ -44,9 +46,28 @@ class BlogPostParser(object):
     
     def parse_blog_post(self) -> BlogPost:
         with open(self.filename, 'r') as file:
-            title = file.readline().replace('\n', '')
-            author = file.readline().replace('\n', '')
-            date = file.readline().replace('\n', '')
-            categories = file.readline().replace('\n', '').split(';')
-            content = file.read()
-        return BlogPost(title, author, categories, date, content)
+            line = file.readline().replace('\n', '')
+            if line == '$meta':
+                line = file.readline().replace('\n', '')
+                while line:
+                    if line == '$endmeta':
+                        break
+                    else:
+                        tokens = line.split(':')
+                        match tokens[0]:
+                            case 'author':
+                                author = tokens[1]
+                            case 'date':
+                                date = tokens[1]
+                            case 'categories':
+                                categories = tokens[1].split(',')
+                            case 'title':
+                                title = tokens[1]
+                            case _:
+                                raise ValueError('Invalid token inside meta block : ' + tokens[0])
+                    line = file.readline().replace('\n', '')
+                content = file.read()
+        if title and author and categories and date and content:
+            return BlogPost(title, author, categories, date, content)
+        else:
+            raise ValueError('Failed to parse blog post. Not all metadata provided!')
