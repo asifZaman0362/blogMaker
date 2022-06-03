@@ -42,7 +42,7 @@ class BlogPostParser(object):
     def __init__(self, filename):
         self.filename = filename
     
-    def parse_blog(self) -> BlogPost:
+    def parse_blog_post(self) -> BlogPost:
         with open(self.filename, 'r') as file:
             title = file.readline().replace('\n', '')
             author = file.readline().replace('\n', '')
